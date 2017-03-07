@@ -14,7 +14,10 @@ if (len === 1) {
     console.log('请输入关键词（phantomjs --output-encoding=gbk task2 <keyword> <device>）');
     phantom.exit();
 } else {
-
+    if (system.args[2] !== "iPhone5" && system.args[2] !== "iPhone6" && system.args[2] !== "iPad") {
+        console.log("请输入正确设备名");
+        phantom.exit();
+    }
     keyword = system.args[1];
     device = system.args[2];
     console.log(keyword);
