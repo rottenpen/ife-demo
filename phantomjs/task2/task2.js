@@ -1,22 +1,28 @@
 var page = require('webpage').create();
 var system = require('system');
+var config = require('./device');
 
-var keyarg = [];
 var keyword = '';
+var device = '';
 var len = system.args.length;
 
 var dataList = [];
 var result = {};
 var startTime = Date.now();
-
+// console.log(JSON.stringify(config));
 if (len === 1) {
-    console.log('请输入关键词');
+    console.log('请输入关键词（phantomjs --output-encoding=gbk task2 <keyword> <device>）');
     phantom.exit();
 } else {
-    keyarg = system.args.splice(1, len - 1);
-    keyword = keyarg.join(' ');
+
+    keyword = system.args[1];
+    device = system.args[2];
     console.log(keyword);
 } //检测关键词 命令行第一个词是phantomjs 所以把它去掉
+
+page.settings.userAgent = config[device].ua;
+
+page.paperSize = config[device].size;
 
 page.open('https:www.baidu.com/s?wd=' + keyword, function(state) {
     if (status == 'fail') {
@@ -25,6 +31,7 @@ page.open('https:www.baidu.com/s?wd=' + keyword, function(state) {
         result.msg = '抓取失败';
         result.word = keyword;
         result.time = 'timeout';
+        result.device = device;
         console.log(JSON.stringify(result));
         phantom.exit()
     } else {
@@ -48,6 +55,7 @@ page.open('https:www.baidu.com/s?wd=' + keyword, function(state) {
             result.code = 1;
             result.msg = '抓取成功';
             result.word = keyword;
+            result.device = device;
             result.time = Date.now() - startTime + 'msec';
             result.dataList = dataList;
             console.log(JSON.stringify(result));
