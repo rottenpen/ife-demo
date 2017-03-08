@@ -1,6 +1,7 @@
 var page = require('webpage').create();
 var system = require('system');
 var config = require('./device');
+var fs = require('fs');
 
 var keyword = '';
 var device = '';
@@ -9,27 +10,29 @@ var len = system.args.length;
 var dataList = [];
 var result = {};
 var startTime = Date.now();
-// console.log(JSON.stringify(config));
+
+phantom.outputEncoding = "gbk";
+
 if (len === 1) {
     console.log('请输入关键词（phantomjs --output-encoding=gbk task2 <keyword> <device>）');
     phantom.exit();
 } else {
-    if (system.args[2] !== "iPhone5" && system.args[2] !== "iPhone6" && system.args[2] !== "iPad") {
+    if (system.args[2] !== "iphone5" && system.args[2] !== "iphone6" && system.args[2] !== "ipad") {
         console.log("请输入正确设备名");
         phantom.exit();
     }
     keyword = system.args[1];
     device = system.args[2];
     console.log(keyword);
-} //检测关键词 命令行第一个词是phantomjs 所以把它去掉
+} //检测关键词
 
-page.settings.userAgent = config[device].ua;
+page.settings.userAgent = config[device].ua; //模拟设备ua
 
-page.paperSize = config[device].size;
+page.paperSize = config[device].size; //模拟设备屏幕尺寸
 
-page.open('https:www.baidu.com/s?wd=' + keyword, function(state) {
+page.open('https:www.baidu.com/s?wd=' + keyword, function(state) { //打开网页
     if (status == 'fail') {
-        console.log('Unable to access network');
+        console.log('无法连接网络');
         result.code = 0;
         result.msg = '抓取失败';
         result.word = keyword;
@@ -38,13 +41,13 @@ page.open('https:www.baidu.com/s?wd=' + keyword, function(state) {
         console.log(JSON.stringify(result));
         phantom.exit()
     } else {
-        console.log('success');
-        page.includeJs('jquery-3.1.1.min.js', function() {
+        console.log('成功连接网络');
+        page.includeJs('jquery-3.1.1.min.js', function() { //使用jquery
 
             dataList = page.evaluate(function() {
                 var data = [];
                 var $content = $('.c-container');
-                $content.each(function(index) {
+                $content.each(function(index) { //遍历搜索结果 
                     data[index] = {
                         title: $(this).find('.t').text() || '',
                         info: $(this).find('.c-abstract').text() || '',
@@ -62,6 +65,9 @@ page.open('https:www.baidu.com/s?wd=' + keyword, function(state) {
             result.time = Date.now() - startTime + 'msec';
             result.dataList = dataList;
             console.log(JSON.stringify(result));
+            var file = fs.open('result.json', 'w'); //结果写入result.json
+            file.write(JSON.stringify(result));
+            file.close();
             phantom.exit();
 
 

@@ -9,6 +9,8 @@ var dataList = [];
 var result = {};
 var startTime = Date.now();
 
+phantom.outputEncoding = "gbk";
+
 if (len === 1) {
     console.log('请输入关键词');
     phantom.exit();
