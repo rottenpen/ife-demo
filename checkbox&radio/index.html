@@ -6,29 +6,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-
+        /*global*/
+        
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .bg,
+        .peseudo {
+            position: flex;
+            width: 300px;
+            height: 300px;
+        }
+        
+        input {
+            margin: 0;
+            display: none;
+        }
+        /*peseudo*/
+        
+        .ps-radio+label {
+            border-radius: 50%;
+        }
+        
+        .ps-check+label,
+        .ps-radio+label {
+            width: 16px;
+            height: 16px;
+            border: solid black 1px;
+            display: flex;
+        }
+        /*.ps-check:checked+label {
+            display: none;
+        }*/
+        
+        .ps-check:checked+label::after {
+            margin: auto;
+            content: "\2714";
+            width: 16px;
+            height: 16px;
+            border: solid black 1px;
+            display: flex;
+        }
+        
+        .ps-radio:checked+label::after {
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            line-height: 8px;
+            content: ' ';
+            background: #000;
+            margin: auto;
+        }
+        /*bg*/
+        
+        .bg-check+label {
+            width: 16px;
+            height: 16px;
+            background: url("img/sprite.png");
+            background-position: 16px 16px;
+            display: flex;
+        }
+        
+        .bg-check:checked+label {
+            background-position: 0px 16px;
+        }
+        
+        .bg-radio+label {
+            width: 16px;
+            height: 16px;
+            background: url("img/sprite.png");
+            background-position: 16px 0px;
+            display: flex;
+        }
+        
+        .bg-radio:checked+label {
+            background-position: 0px 0px;
+        }
     </style>
 </head>
 
 <body>
     <div class="bg">
         <h1>背景图:</h1>
-        <input type="checkbox" name="" value="">
-        <label for="checkbox"></label>
-        <input type="radio">
-        <label for="radio">是</label>
-        <input type="radio">
-        <label for="radio">否</label>
+
+        <input type="checkbox" name="" value="" class="bg-check" id="bg-checkbox">
+        <label for="bg-checkbox"></label>
+
+        <form class="radios">
+            <input type="radio" class="bg-radio" id="bg-radio1" name="test1">
+            <label for="bg-radio1"></label>
+            <input type="radio" class="bg-radio" id="bg-radio" name="test1">
+            <label for="bg-radio"></label>
+        </form>
+
     </div>
 
     <div class="peseudo">
         <h1>伪类:</h1>
-        <input type="checkbox" name="" value="">
-        <label for="checkbox"></label>
-        <input type="radio">
-        <label for="radio">是</label>
-        <input type="radio">
-        <label for="radio">否</label>
+
+        <input type="checkbox" name="" value="" class="ps-check" id="ps-checkbox">
+        <label for="ps-checkbox" class="ps-checkbox"></label>
+
+        <form class="radios">
+            <input type="radio" class="ps-radio" id="ps-radio1" name="test2">
+            <label for="ps-radio1"></label>
+            <input type="radio" class="ps-radio" id="ps-radio" name="test2">
+            <label for="ps-radio"></label>
+        </form>
+
     </div>
 
 </body>
