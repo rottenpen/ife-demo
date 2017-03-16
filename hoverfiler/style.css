@@ -1,0 +1,116 @@
+body,
+div,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.imgbox {
+    width: 356px;
+    height: 236px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.imgbox:hover img {
+    filter: blur(5px);
+}
+
+.mask {
+    width: 320px;
+    height: 210px;
+    /*display: none;*/
+    /*background: rgba(255, 255, 255, 0.5);*/
+    position: absolute;
+    opacity: 0;
+    /*z-index: 100;*/
+    top: 8px;
+    left: 15px;
+    text-align: center;
+}
+
+.cbox {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.tb {
+    position: relative;
+    margin: 0 auto;
+    border-top: solid #fff 3px;
+    border-bottom: solid #fff 3px;
+    height: 100%;
+    width: 80px;
+    padding-right: 6px;
+    /*对父类总宽不一造成bug的hack*/
+}
+
+.rl {
+    position: relative;
+    margin: auto;
+    top: 25%;
+    border-left: solid #fff 3px;
+    border-right: solid #fff 3px;
+    height: 80px;
+    width: 100%;
+    padding-bottom: 6px;
+}
+
+.imgbox:hover .mask {
+    opacity: 1;
+    transform: all 2s;
+}
+
+.imgbox .mask .zi {
+    background-image: -webkit-linear-gradient(left, rgba(86, 183, 101, 1), rgba(227, 95, 158, 1) 30%, rgba(228, 228, 0, 1) 60%, rgba(245, 175, 101, 1));
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
+    transform: translateY(200px);
+    animation: masked-animation 6s infinite linear;
+    -webkit-animation: masked-animation 6s infinite linear;
+}
+
+@keyframes masked-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@-webkit-keyframes masked-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.imgbox:hover .mask .cbox .tb {
+    width: 100%;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+}
+
+.imgbox:hover .mask .cbox .zi {
+    transform: translateY(50px);
+    -webkit-transition: width 2s;
+    transition: width 2s;
+}
+
+.imgbox:hover .mask .cbox .rl {
+    height: 100%;
+    top: 0;
+    -webkit-transition: height 2s, top 2s;
+    transition: height 2s, top 2s;
+}
