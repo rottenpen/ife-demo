@@ -22,9 +22,9 @@ p.walk = function(obj) {
 };
 
 p.convert = function(key, val) {
-    Object.defineProperty(this.data, key, {
-        enumerable: true,
-        configurable: true,
+    Object.defineProperty(this.data, key, { //第一个参数:目标对象 第二个参数:需要定义的属性或方法的名字 第三个参数:目标属性所拥有的特性。（descriptor）
+        enumerable: true, //默认false 属性可以用for...in枚举
+        configurable: true, //默认false 属性描述符的类型可能被改变，并且可以从当前对象中删除
         get: function() {
             console.log('你访问了' + key);
             return val
