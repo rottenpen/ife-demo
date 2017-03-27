@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Creating custom video controls
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="id3-minimized.js"></script>-->
+    <script src="audio.js">
+    </script>
+</head>
+
+<body>
+    <div id="audio_container">
+        <audio width="320" height="176" src="" autoplay="true" />
+    </div>
+    <div id="audio_controller">
+        <div id="song_cover"></div>
+        <div class="row">
+            <a id="song_title"></a>-
+            <a id="song_artist"></a>
+        </div>
+        <div class="row progress">
+            <div class="playing-progress">
+
+                <div id="time_all">
+                    <div id="time_ranges" style="left: 0px"></div>
+
+                </div>
+
+            </div>
+            <input type="range" min="0" max="1" step="0.01" id="time" title="time">
+
+        </div>
+        <div class="row btn-group">
+            <button id="btn_toggle" class="btn_pause"></button>
+            <!--<button id="btn_pause" class="btn_pause"></button>-->
+            <button id="btn_next" class="btn_next"></button>
+            <button id="btn_sound" title="声音" class="btn_sound"> </button>
+            <input type="range" min="0" max="1" step="0.1" id="volume" title="vol">
+        </div>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>

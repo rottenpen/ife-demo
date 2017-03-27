@@ -1,0 +1,325 @@
+/*reset*/
+
+html {
+    box-sizing: border-box
+}
+
+*,
+:after,
+:before {
+    box-sizing: inherit
+}
+
+.pull-right {
+    float: right
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    height: 38px;
+    padding: 0 16px;
+    color: rgba(0, 0, 0, .44);
+    background: transparent;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .15);
+    vertical-align: bottom;
+    white-space: nowrap;
+    text-rendering: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    letter-spacing: -.02em;
+    font-weight: 400;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on
+}
+
+.button:focus {
+    outline: none
+}
+
+.button:focus a,
+.button:focus i,
+.button:focus span,
+.button:hover a,
+.button:hover i,
+.button:hover span {
+    cursor: pointer
+}
+
+.button i:first-child {
+    margin-right: .5em
+}
+
+.button-primary {
+    background: #fff;
+    border: 1px solid #6bbd7a;
+    font-size: 14px;
+    color: #6bbd7a;
+    line-height: 42px;
+    height: 42px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 340px
+}
+
+.button-secondary {
+    border: 1px solid #c9c9c9;
+    border-radius: 18px;
+    font-size: 16px;
+    color: #9b9b9b;
+    line-height: 36px;
+    height: 36px
+}
+
+.button-primary.button-disable {
+    background: #c9c9c9;
+    border-color: #c9c9c9
+}
+
+.button-primary.button-disable,
+.button-primary.button-disable a,
+.button-primary.button-disable i,
+.button-primary.button-disable span {
+    cursor: not-allowed
+}
+
+.button-green {
+    background: #bae7c2;
+    border: 1px solid #afe7ba
+}
+
+.button-green:hover {
+    background: #94daa1
+}
+
+.button-green.active {
+    background: #6bbd7a;
+    border: 1px solid #59b36a
+}
+
+.button-green.active:hover {
+    background: #4ca95d
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, PingFang SC, Source Han Sans CN, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
+    font-weight: 400
+}
+
+::-webkit-scrollbar {
+    display: none
+}
+
+a,
+a>i,
+a>span {
+    cursor: pointer
+}
+
+a {
+    color: #8f8e94;
+    text-decoration: none
+}
+
+p {
+    font-size: 12px;
+    color: #9b9b9b
+}
+
+html {
+    -ms-overflow-style: none
+}
+
+#app,
+.top-level,
+body,
+html {
+    background-color: #fff;
+    margin: 0;
+    height: 100%;
+    min-height: 540px;
+    width: 100%
+}
+
+.container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0;
+    margin: 0 auto
+}
+
+.container:after {
+    clear: both;
+    content: "";
+    display: block
+}
+
+.label-pro {
+    height: 12px;
+    line-height: 12px;
+    font-size: 8px;
+    padding: 0 3px;
+    color: #9a742e!important;
+    background-color: #ece5d4;
+    display: inline-block;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    vertical-align: middle
+}
+
+textarea {
+    border: 1px solid #e1e1e1;
+    cursor: text;
+    resize: none
+}
+
+textarea:focus {
+    outline: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0
+}
+
+
+/*audio*/
+
+body {
+    background-color: rgba(250, 250, 250, 0.933333);
+}
+
+#audio_controller {
+    width: 260px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+}
+
+.btn_play {
+    background: url(img/暂停.png);
+    border: none;
+    width: 48px;
+    height: 48px;
+}
+
+#time {
+    opacity: 0;
+    width: 100%;
+}
+
+.btn_pause {
+    background: url(img/开始.png);
+    border: none;
+    width: 48px;
+    height: 48px;
+}
+
+.btn_sound {
+    background: url(img/声音.png);
+    border: none;
+    width: 48px;
+    height: 48px;
+}
+
+.btn_mute {
+    background: url(img/静音.png);
+    border: none;
+    width: 48px;
+    height: 48px;
+}
+
+#btn_next {
+    background: url(img/next.png);
+    border: none;
+    width: 48px;
+    height: 48px;
+}
+
+#song_cover {
+    width: 240px;
+    height: 240px;
+    background: #4ca95d;
+    background-image: url(img/111.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    animation: roll 5s linear infinite;
+}
+
+.playing-progress {
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 1px;
+    top: 10px;
+    background-color: #dadada;
+    -webkit-transition-property: width;
+    transition-property: width;
+}
+
+.progress {
+    height: 30px;
+}
+
+#time_all {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+#time_ranges {
+    width: 100%;
+    /*left: -100%;*/
+    background-color: rgb(107, 189, 122);
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    height: 1px;
+}
+
+#volume {
+    width: 98px;
+    position: relative;
+    top: -10px;
+}
+
+@keyframes roll {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
