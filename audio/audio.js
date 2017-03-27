@@ -139,7 +139,10 @@ window.onload = function() {
         time_range = myTime / audio.duration;
         test = (time_range - 1) * 100 + '%';
         t_ranges.style.cssText = "left:" + test + "";
-        console.log(test);
+        // console.log(test);
+        if (audio.currentTime == audio.duration) {
+            nextSong();
+        }
 
     }, false);
     btn_time.addEventListener('change', function(e) {
@@ -169,8 +172,8 @@ window.onload = function() {
         if (song_index == song_list.length) {
             song_index = 0;
         }
-        console.log(song_list.length)
-        console.log(song_index);
+        // console.log(song_list.length)
+        // console.log(song_index);
         song_title.innerHTML = song_list[song_index].name;
         song_artist.innerHTML = song_list[song_index].artist;
         song_cover.style.cssText = "background-image:url(" + song_list[song_index].cover + ")";
