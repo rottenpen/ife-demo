@@ -1,0 +1,11 @@
+{
+    "name": "task3",
+    "version": "1.0.0",
+    "description": "mongodb",
+    "scripts": {},
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "mongoose": "^4.9.2"
+    }
+}
